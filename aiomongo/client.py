@@ -19,6 +19,7 @@ class AioMongoClient:
 
     def __init__(self, uri: str, loop: asyncio.AbstractEventLoop):
         uri_info = parse_uri(uri=uri)
+        print(url_info)
         assert len(uri_info['nodelist']) == 1, 'Can only connect to single node - either mongod or mongos'
         self.host = uri_info['nodelist'][0][0]
         self.port = uri_info['nodelist'][0][1]
